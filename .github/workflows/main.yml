@@ -6,7 +6,7 @@ on:
       - build
     paths:
      - 'index.html'
-     - 'css/project-style.css/**'
+     - 'css.txt'
 jobs:
   my-job:
     runs-on: ubuntu-latest
