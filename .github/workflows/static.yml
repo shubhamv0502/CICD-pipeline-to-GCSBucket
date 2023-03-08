@@ -15,8 +15,8 @@ jobs:
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
-          project_id: ${{ secrets.RUN_PROJECT }}
-          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
 
       - name: Upload file to GCS
         run: |
