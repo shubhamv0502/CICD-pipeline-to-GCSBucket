@@ -15,8 +15,15 @@ jobs:
       - name: Run my local action
         uses: ./.github/actions/my-local-action
 
+      - name: Checkout GoogleCloudPlatform/github-actions/setup-gcloud
+        uses: actions/checkout@v2
+        with:
+          repository: GoogleCloudPlatform/github-actions
+          ref: main
+          path: .github/actions/setup-gcloud
+      
       - name: Set up GCP CLI
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
+        uses: ./.github/actions/setup-gcloud
         with:
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
@@ -24,4 +31,3 @@ jobs:
       - name: Upload file to GCS
         run: |
           gsutil cp index.html gs://shubhamprojectbucket/updatedvalues/
-          
