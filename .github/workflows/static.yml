@@ -12,14 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Run my local action
-        uses: ./.github/actions/my-action
-
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          
+      - name: Run my local action
+        uses: ./.github/actions/my-action
 
       - name: Upload file to GCS
         run: |
