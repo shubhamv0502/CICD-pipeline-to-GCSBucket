@@ -1,13 +1,13 @@
-name: Upload to GCP Bucket
+name: Upload to GCS
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  deploy:
+  upload:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,11 +15,10 @@ jobs:
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
-          version: '342.0.0'
           project_id: ${{ secrets.RUN_PROJECT }}
-          service_account_email: ${{ secrets.SA_EMAIL }}
-          service_account_key:  ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
-      - name: Upload to GCP Bucket
+      - name: Upload file to GCS
         run: |
           gsutil cp index.html gs://shubhamprojectbucket/updatedvalues/
+          
