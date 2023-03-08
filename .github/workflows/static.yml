@@ -1,15 +1,25 @@
-name: connect-project
+name: Upload to GCP Bucket
+
 on:
   push:
     branches:
       - main
-      - build
-    paths:
-     - 'index.html'
-     - 'css.txt'
+
 jobs:
-  my-job:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "updated"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up GCP CLI
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '342.0.0'
+          project_id: ${{ secrets.RUN_PROJECT }}
+          service_account_email: ${{ secrets.SA_EMAIL }}
+          service_account_key:  ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+
+      - name: Upload to GCP Bucket
+        run: |
+          gsutil cp index.html gs://shubhamprojectbucket/updatedvalues/
