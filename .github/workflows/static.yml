@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Run my local action
+        uses: ./.github/actions/my-local-action
 
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
