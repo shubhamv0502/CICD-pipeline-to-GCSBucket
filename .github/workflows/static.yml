@@ -22,6 +22,15 @@ jobs:
        #   repository: shubhamv0502/shubhamproject
        #   path: ./.github/actions/my-action
 
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+                #workload_identity_provider: ${{ secrets.TOKEN }}
+                credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
+                service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+                #service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
