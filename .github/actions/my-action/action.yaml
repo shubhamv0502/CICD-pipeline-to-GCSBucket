@@ -11,4 +11,6 @@ runs:
   using: 'docker'
   image: 'google/cloud-sdk:alpine'
   entrypoint: 'bash'
-  args: ['-c', 'gsutil cp ${{ inputs.index.html }} gs://${{ inputs.gs://shubhamprojectbucket/updatedvalues }}/']
+  args: 
+    - '-c'
+    - 'gsutil cp ${{ inputs.index.html }} gs://${{ inputs.gs://shubhamprojectbucket/updatedvalues }}/'
