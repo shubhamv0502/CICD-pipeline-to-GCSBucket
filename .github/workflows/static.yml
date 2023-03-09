@@ -28,4 +28,5 @@ jobs:
 
       - name: Upload file to GCS
         run: |
-          gsutil cp https://github.com/shubhamv0502/shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+          #gsutil cp shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+          gsutil cp -r dir gs://shubhamprojectbucket/updatedvalues/
