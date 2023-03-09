@@ -2,7 +2,7 @@ name: Upload to GCS
 
 on:
   push:
-    branches: [main]
+    branches: main
 
 jobs:
   upload:
