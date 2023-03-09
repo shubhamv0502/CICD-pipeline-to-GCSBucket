@@ -11,4 +11,4 @@ runs:
   using: 'docker'
   image: 'google/cloud-sdk:alpine'
   entrypoint: 'bash'
-  args: ['-c', 'gsutil cp $INPUT_FILE-PATH gs://$INPUT_BUCKET/']
+  args: ['-c', 'gsutil cp $INPUT_FILE-PATH gs://shubhamprojectbucket/updatedvalues/']
