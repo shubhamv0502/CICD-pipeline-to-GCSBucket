@@ -19,7 +19,7 @@ jobs:
           path: ./.github/actions/my-action
 
       - name: Set up GCP CLI
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v1
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
