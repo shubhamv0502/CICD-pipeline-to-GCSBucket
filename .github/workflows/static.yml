@@ -39,8 +39,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
-      - name: Run my local action
-        uses: ./.github/actions/my-action
+#       - name: Run my local action
+#         uses: ./.github/actions/my-action
 
       - name: Upload file to GCS
         run: |
