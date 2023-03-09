@@ -16,31 +16,15 @@ jobs:
         with:
          fetch-depth: 0
 
-    #  - name: Checkout my local action
-      #  uses: actions/checkout@v2
-       # with:
-       #   repository: shubhamv0502/shubhamproject
-       #   path: ./.github/actions/my-action
-
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-                #workload_identity_provider: ${{ secrets.TOKEN }}
                 credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
                 service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
-                #service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
 
-      #- name: Set up GCP CLI
-       # uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
-        #with:
-         # project_id: ${{ secrets.PROJECT_ID }}
-          #service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
-
-#       - name: Run my local action
-#         uses: ./.github/actions/my-action
 
       - name: Upload file to GCS
         run: |
