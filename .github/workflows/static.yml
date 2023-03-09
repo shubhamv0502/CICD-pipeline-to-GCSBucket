@@ -12,14 +12,15 @@ jobs:
            id-token: 'write'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Checkout my local action
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          repository: shubhamv0502/shubhamproject
-          path: ./.github/actions/my-action
+         fetch-depth: 0
+
+    #  - name: Checkout my local action
+      #  uses: actions/checkout@v2
+       # with:
+       #   repository: shubhamv0502/shubhamproject
+       #   path: ./.github/actions/my-action
 
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
