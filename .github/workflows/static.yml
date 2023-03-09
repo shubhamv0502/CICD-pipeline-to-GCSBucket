@@ -26,7 +26,15 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
-      - name: Upload repository to GCS
+#       - name: Upload repository to GCS
+#         run: |
+#           #gsutil cp shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+#           gsutil -m cp -r shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+
+      - name: List repository files
         run: |
-          #gsutil cp shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
-          gsutil -m cp -r shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+         ls -R shubhamproject
+
+      - name: Upload file to GCS
+        run: |
+          gsutil cp -r shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
