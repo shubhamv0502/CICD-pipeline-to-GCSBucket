@@ -33,7 +33,7 @@ jobs:
 
       - name: List repository files
         run: |
-         ls -R shubhamproject
+         ls -R $GITHUB_WORKSPACE/shubhamproject
 
       - name: Upload file to GCS
         run: |
