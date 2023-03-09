@@ -11,13 +11,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Set up GCP CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
           project_id: ${{ secrets.PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          
+
+      - name: Checkout my local action
+        uses: actions/checkout@v2
+        with:
+          repository: shubhamv0502/shubhamproject
+          path: ./.github/actions/my-action
+
       - name: Run my local action
         uses: ./.github/actions/my-action
 
