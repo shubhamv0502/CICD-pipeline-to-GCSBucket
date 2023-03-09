@@ -31,11 +31,13 @@ jobs:
                 service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
                 #service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS}}
 
-      - name: Set up GCP CLI
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
-        with:
-          project_id: ${{ secrets.PROJECT_ID }}
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+      #- name: Set up GCP CLI
+       # uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
+        #with:
+         # project_id: ${{ secrets.PROJECT_ID }}
+          #service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
 
       - name: Run my local action
         uses: ./.github/actions/my-action
