@@ -29,4 +29,3 @@ jobs:
       - name: Upload repository to VM
         run: |
            #git clone ssh://shubhamv0502@gmail.com@source.developers.google.com:2022/p/industrious-eye-380015/r/testrepo
-           gcloud compute scp --recurse ./ <shubhamv0502@gmail.com>@${instance-1}:${HOME}/testrepo --zone=${us-central1-a} --project=${industrious-eye-380015}
