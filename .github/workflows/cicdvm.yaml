@@ -36,4 +36,4 @@ jobs:
       - name: Upload repository to VM
         run: |
            #git clone ssh://shubhamv0502@gmail.com@source.developers.google.com:2022/p/industrious-eye-380015/r/testrepo
-           gcloud compute scp shubhamproject/* instance-1:/home/shubhamv0502/testrepo
+           gcloud compute scp shubhamproject/index.html instance-1:/home/shubhamv0502/testrepo
