@@ -29,5 +29,5 @@ jobs:
       - name: Upload repository to GCS
         run: |
            #gsutil cp shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
-           gsutil -m cp -r * gs://shubhamprojectbucket/updatedvalues/
+           gsutil -m cp -r * gs://svproject/clonned_github_repo/
 
