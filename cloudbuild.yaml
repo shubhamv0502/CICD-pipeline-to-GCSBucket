@@ -1,8 +1,8 @@
 name: GCP Cloud Build
 
 on:
-  push:
-    branches: main
+  release:
+    types: [published]
 
 jobs:
   upload:
