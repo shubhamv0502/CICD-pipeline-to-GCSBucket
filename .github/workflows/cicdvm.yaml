@@ -23,11 +23,11 @@ jobs:
                 credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
                 service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
                 
-      - id: 'compute-ssh'
-        uses: 'google-github-actions/ssh-compute@v0'
-        with:
-         instance_name: instance-1
-         zone: us-central1-a
+#       - id: 'compute-ssh'
+#         uses: 'google-github-actions/ssh-compute@v0'
+#         with:
+#          instance_name: instance-1
+#          zone: us-central1-a
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
