@@ -1,4 +1,4 @@
-name: Upload to GCS
+name: Upload to GCS Bucket
 
 on:
   push:
@@ -28,6 +28,8 @@ jobs:
 
       - name: Upload repository to GCS
         run: |
-           #gsutil cp shubhamproject/* gs://shubhamprojectbucket/updatedvalues/
+           #for just one file
+           #gsutil cp index.html gs://shubhamprojectbucket/updatedvalues/
+           #for repo
            gsutil -m cp -r * gs://svproject/clonned_github_repo/
 
