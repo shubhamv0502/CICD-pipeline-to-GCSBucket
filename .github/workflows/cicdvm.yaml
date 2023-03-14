@@ -22,6 +22,13 @@ jobs:
         with:
                 credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
                 service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+                
+      - id: 'compute-ssh'
+        uses: 'google-github-actions/ssh-compute@v0'
+        with:
+         instance_name: instance-1
+         zone: us-central1-a
+
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
@@ -29,3 +36,4 @@ jobs:
       - name: Upload repository to VM
         run: |
            #git clone ssh://shubhamv0502@gmail.com@source.developers.google.com:2022/p/industrious-eye-380015/r/testrepo
+           gcloud compute scp shubhamproject/* instance-1:/home/shubhamv0502/testrepo
