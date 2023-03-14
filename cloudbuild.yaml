@@ -1,28 +1,41 @@
 name: GCP Cloud Build
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: main
 
-job:
-  job_id:
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+           contents: 'read'
+           id-token: 'write'
+    job_id:
     name: Trigger Google Cloud Build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+         fetch-depth: 0
 
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
-      with:
-        credentials_json: '${{ secrets.SERVICE_ACCOUNT_KEY }}'
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+                credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY}}
+                service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v0'
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
 
-    - name: 'Use gcloud CLI'
-      run: 'gcloud info'
-
-    - name: 'Start Google Cloud Build trigger'
-      run: |
-        export CLOUDSDK_CORE_DISABLE_PROMPTS=1
-        gcloud beta builds triggers run ${{ secrets.GCP_BUILD_STAGING_TRIGGER_ID }} --tag=${{ github.event.release.tag_name }}
+      - name: Start Google Cloud Build trigger
+        run: |
+           export CLOUDSDK_CORE_DISABLE_PROMPTS=1
+           gcloud beta builds triggers run ${{ secrets.GCP_BUILD_STAGING_TRIGGER_ID }} --tag=${{ github.event.release.tag_name }}
+           #for just one file
+           gsutil cp index.html gs://svproject/cloudbuild_data/
+           #for repo
+           #gsutil -m cp -r * gs://svproject/clonned_github_repo/
