@@ -12,7 +12,7 @@ steps:
 #   args: ['install', 'hello']
 #   env: ['PROJECT_ROOT=hello']
 # Upload it into a GCS bucket.
-- name: '-bash'
+- name: 'bash'
   args: ['cp', 'gsutil', 'shubhamv0502/Generalproject/index.html', 'gs://svproject/cloudbuild_data/'] 
 logsBucket: 'gs://svproject/cloudbuild_data/'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
