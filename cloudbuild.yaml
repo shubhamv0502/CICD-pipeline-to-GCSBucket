@@ -5,17 +5,15 @@ on:
     types: [published]
 
 steps:
-    name: Trigger Google Cloud Build
-    runs-on: ubuntu-latest
-   
-
-      - name: Start Google Cloud Build trigger
+     - name: Start Google Cloud Build trigger
         run: |
            export CLOUDSDK_CORE_DISABLE_PROMPTS=1
            gcloud beta builds triggers run ${{ secrets.GCP_BUILD_STAGING_TRIGGER_ID }}
            #for just one file
-           copy:
-                https://github.com/shubhamv0502/Generalproject/index.html
-           gsutil gs://svproject/cloudbuild_data/
            #for repo
            #gsutil -m cp -r * gs://svproject/clonned_github_repo/
+           
+        - name: Trigger Google Cloud Build
+          args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/clonned_github_repo/']  
+
+  
