@@ -6,17 +6,24 @@
 # options:
 #   logging: GCS_ONLY
 
+# steps:
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+#   args: ['install', 'hello']
+#   env: ['PROJECT_ROOT=hello']
+#   args:
+#   - '-c'
+#   - 'curl https://sdk.cloud.google.com | bash && gcloud init && gcloud components install gsutil && gsutil cp index.html gs://svproject/cloudbuild_data/'
+# logsBucket: 'gs://svproject/cloudbuild_data/'
+# serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
+# options:
+#   logging: GCS_ONLY
+
 steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-  args: ['install', 'hello']
-  env: ['PROJECT_ROOT=hello']
+  entrypoint: 'bash'
   args:
   - '-c'
-  - 'curl https://sdk.cloud.google.com | bash && gcloud init && gcloud components install gsutil && gsutil cp index.html gs://svproject/cloudbuild_data/'
-logsBucket: 'gs://svproject/cloudbuild_data/'
-serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
-options:
-  logging: GCS_ONLY
+  - 'gcloud components install gsutil && gsutil cp index.html gs://svproject/cloudbuild_data/'
 
 # steps:
 # - name: 'bash'
