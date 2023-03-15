@@ -1,5 +1,3 @@
-name: GCP Cloud Build
-
-steps: 
-        - name: Trigger Google Cloud Build
-          args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/clonned_github_repo/']  
+steps:
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/clonned_github_repo/']  
