@@ -7,11 +7,9 @@
 #   logging: GCS_ONLY
 
 steps:
-- name: 'gcr.io/cloud-builders/go'
+- name: '-bash'
   args: ['install', 'hello']
   env: ['PROJECT_ROOT=hello']
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
   args:
   - '-c'
   - 'curl https://sdk.cloud.google.com | bash && gcloud init && gcloud components install gsutil && gsutil cp index.html gs://svproject/cloudbuild_data/'
