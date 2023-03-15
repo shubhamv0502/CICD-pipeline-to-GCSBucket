@@ -7,4 +7,4 @@ steps:
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['install', '.']
-logsBucket: 'gs://${PROJECT_ID}_bucket'
+logsBucket: 'gs://my-log-bucket'
