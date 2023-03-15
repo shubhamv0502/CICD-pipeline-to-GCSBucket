@@ -7,7 +7,7 @@
 #   logging: GCS_ONLY
 
 steps:
-- name: '-bash'
+- name: 'gcr.io/cloud-builders/gcloud'
   args: ['install', 'hello']
   env: ['PROJECT_ROOT=hello']
   args:
