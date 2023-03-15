@@ -23,8 +23,6 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - 'sudo apt-get remove google-cloud-cli'
-  - '-c'
   - 'apt-get update && apt-get install -y google-cloud-sdk && gsutil cp index.html gs://svproject/cloudbuild_data/'
 logsBucket: 'gs://svproject/cloudbuild_data/'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
