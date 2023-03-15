@@ -3,4 +3,4 @@ steps:
    args: ['cp', 'gsutil cp https://github.com/shubhamv0502/Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
    #args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/cloudbuild_data/index.html']
    #gsutil cp [OPTION]... src_url dst_url
-   gsutil logging set on -b gs://my-log-bucket -o UsageLog \
+   #gsutil logging set on -b gs://my-log-bucket -o UsageLog \
