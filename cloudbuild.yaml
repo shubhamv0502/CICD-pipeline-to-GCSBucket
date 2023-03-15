@@ -1,7 +1,16 @@
 steps:
- - name: 'gcr.io/cloud-builders/gcloud'
-   args: ['cp', 'gsutil cp https://github.com/shubhamv0502/Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
-   logsBucket: 'gs://my-log-bucket'
-   #args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/cloudbuild_data/index.html']
-   #gsutil cp [OPTION]... src_url dst_url
-   #gsutil logging set on -b gs://my-log-bucket -o UsageLog \
+- name: 'bash'
+  args: ['echo', 'Hello world!']
+logsBucket: 'gs://my-log-bucket'
+serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
+options:
+  logging: GCS_ONLY
+
+
+# steps:
+#  - name: 'gcr.io/cloud-builders/gcloud'
+#    #args: ['cp', 'gsutil cp https://github.com/shubhamv0502/Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
+#    logsBucket: 'gs://my-log-bucket'
+#    #args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/cloudbuild_data/index.html']
+#    #gsutil cp [OPTION]... src_url dst_url
+#    #gsutil logging set on -b gs://my-log-bucket -o UsageLog \
