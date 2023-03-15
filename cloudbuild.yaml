@@ -1,7 +1,7 @@
 steps:
 - name: 'bash'
   args: ['echo', 'Hello world!']
-logsBucket: 'gs://my-log-bucket'
+logsBucket: 'gs://svproject'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
 options:
   logging: GCS_ONLY
