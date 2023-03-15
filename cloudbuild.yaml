@@ -1,6 +1,7 @@
 steps:
  - name: 'gcr.io/cloud-builders/gcloud'
    args: ['cp', 'gsutil cp https://github.com/shubhamv0502/Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
+   logsBucket: 'gs://my-log-bucket'
    #args: ['cp', 'gs://Generalproject/index.html', 'gs://svproject/cloudbuild_data/index.html']
    #gsutil cp [OPTION]... src_url dst_url
    #gsutil logging set on -b gs://my-log-bucket -o UsageLog \
