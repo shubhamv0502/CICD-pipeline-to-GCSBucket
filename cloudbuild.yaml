@@ -1,6 +1,6 @@
 steps:
 - name: 'bash'
-  args: ['-u', '--source', 'Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
+  args: ['cp', '-u', '--source', 'Generalproject/index.html', 'gs://svproject/cloudbuild_data/']
 logsBucket: 'gs://svproject/cloudbuild_data/'
 serviceAccount: 'projects/groovy-aquifercloudbuild_data/-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
 options:
