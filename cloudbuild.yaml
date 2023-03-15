@@ -1,6 +1,6 @@
 steps:
 - name: 'bash'
-  args: ['cp', 'gsutil cp index.html', 'gs://svproject/cloudbuild_data/']
+  args: ['gsutil cp index.html', 'gs://svproject/cloudbuild_data/']
 logsBucket: 'gs://svproject'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
 options:
