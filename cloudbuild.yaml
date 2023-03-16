@@ -23,7 +23,7 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - 'apt-get remove google-cloud-cli -y'
+  #- 'apt-get remove google-cloud-cli -y'
   - 'apt-get update && apt-get install google-cloud-sdk -y'
   - 'gsutil cp index.html gs://svproject/cloudbuild_data/'
 logsBucket: 'gs://svproject/cloudbuild_data/'
