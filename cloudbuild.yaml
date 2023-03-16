@@ -25,11 +25,12 @@ steps:
   - '-c'
   - 'apt-get remove google-cloud-cli -y'
   - 'apt-get update && apt-get install google-cloud-sdk -y'
-  - 'gsutil cp gs://svproject/cloudbuild_data/script1.sh gs://svproject/'
-  - 'gcloud auth print-access-token shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
+  #- 'gsutil cp gs://svproject/cloudbuild_data/script1.sh gs://svproject/'
+  #- 'gcloud auth print-access-token shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
   
 - name: 'gcr.io/google.com/gsutil'
-  args: ['cp', 'index.html', 'gs://svproject/cloudbuild_data/']
+  entrypoint: 'bash'
+  args: ['-c', 'gsutil mb -p groovy-aquifer-380616 gs://svproject/cloudbuild_data/ && cp index.html gs://svproject/cloudbuild_data/']
 
 logsBucket: 'gs://svproject/cloudbuild_data/'
 serviceAccount: 'projects/groovy-aquifer-380616/serviceAccounts/shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
