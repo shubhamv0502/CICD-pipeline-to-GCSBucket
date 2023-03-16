@@ -1,15 +1,13 @@
 # this command is to copy all files and directory
- steps:
-  
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-   entrypoint: 'bash'
-   args: ['gsutil', '-m', 'cp', '-r', '*', '$_BUCKET_PATH']
 
- logsBucket: '$_BUCKET_LOGS'
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args: ['gsutil', '-m', 'cp', '-r', '*', '$_BUCKET_PATH']
+logsBucket: '$_BUCKET_LOGS'
  serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
- options:
+options:
   logging: GCS_ONLY
-
 
 # this command is to copy a file from github to bucket
 
