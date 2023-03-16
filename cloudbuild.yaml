@@ -25,7 +25,7 @@ steps:
   - '-c'
   - 'apt-get remove google-cloud-cli -y'
   - 'apt-get update && apt-get install google-cloud-sdk -y'
-  - 'gsutil cp https://github.com/shubhamv0502/Generalproject/index.html gs://svproject/'
+  - 'gsutil cp gs://svproject/cloudbuild_data/script1.sh gs://svproject/'
   - 'gcloud auth print-access-token shubhamv0502-gmail-com@groovy-aquifer-380616.iam.gserviceaccount.com'
   
 - name: 'gcr.io/google.com/gsutil'
