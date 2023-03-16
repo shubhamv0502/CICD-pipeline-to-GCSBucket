@@ -14,7 +14,7 @@
 # this command is to copy a file from github to bucket
 
 steps:
-- name: 'gcr.io/cloud-builders/gsutil'
+# - name: 'gcr.io/cloud-builders/gsutil'
   entrypoint: 'bash'
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'index.html', 'gs://svproject/cloudbuild_data/']
