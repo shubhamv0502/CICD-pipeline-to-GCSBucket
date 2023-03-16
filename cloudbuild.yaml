@@ -4,7 +4,7 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args: ['gsutil', '-m', 'cp', '-r', '*', '$_BUCKET_PATH']
-logsBucket: '$_BUCKET_LOGS'
+logsBucket: 'gs://logs_bucket_sv'
  serviceAccount: 'projects/$_PROJECT_ID/serviceAccounts/$_SERVICE_ACCOUNT'
 options:
   logging: GCS_ONLY
